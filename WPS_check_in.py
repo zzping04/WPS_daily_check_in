@@ -1,4 +1,4 @@
-import random, os
+import random, os, json
 import requests
 
 wps_sid = os.getenv('WPS_SID').strip().split()
