@@ -1,7 +1,7 @@
 import random, os, json
 import requests
 
-wps_sid = os.getenv('WPS_SID').strip().split()
+wps_sid = os.getenv('WPS_SID').strip()
 
 s = requests.session()
 
