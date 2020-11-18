@@ -1,0 +1,29 @@
+name: 'WPS daily check in'
+
+on:
+   push:
+     branches: 
+       - master
+  schedule:
+    - cron: '0 1 * * *'
+    # 国际标准时间，北京时间 + 16 = 国际标准时间
+    # 这里是北京时间 9 点（9+16-24）
+
+jobs:
+  daily_check_in:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: 'Set up Python'
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+      - name: 'Install requirements'
+        run: pip install -r ./requirements.txt
+      - name: 'Working'
+        env: 
+           WPS_SID: ${{ secrets.WPS_SID }}
+           # 把secrets设置的变量载入到环境变量中
+    
+        run: python WPS_check_in.py
