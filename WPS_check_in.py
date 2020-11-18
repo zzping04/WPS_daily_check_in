@@ -16,8 +16,8 @@ cookie = {
 # 领任务，4：签到，5：答题+积分，8：答题+会员
 task_url = 'https://vipapi.wps.cn/task_center/task/receive_task'
 for i in (4,5,8):
-    data = {'id' : i}
-    r = s.post(task_url, cookies=cookie,data = data)
+    data = {'id' : str(i)}
+    r = s.post(task_url, cookies=cookie, data = data)
     print(i,r.text)
 
 # 答题
@@ -41,7 +41,7 @@ for k, v in questionbank.items():
 # 领奖励
 reward_url = 'https://vipapi.wps.cn/task_center/task/receive_reward'
 for i in (4,5,8):
-    data = {'id' : i}
-    r = s.post(reward_url, cookies=cookie,data = data)
+    data = {'id' : str(i)}
+    r = s.post(reward_url, cookies=cookie, data = data)
     print(json.loads(r.text))
 
