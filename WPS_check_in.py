@@ -1,14 +1,13 @@
-import random
+import random, os
 import requests
+
+wps_sid = os.getenv('WPS_SID').strip().split()
 
 s = requests.session()
 
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36'
 }
-
-invite_userid = 244668941
-wps_sid = 'V02StmNx2jDkYJGLQ1suV7tCWs4UGuI00a5b2e57000e955a0d'
 
 cookie = {
     'wps_sid': wps_sid
