@@ -4,6 +4,7 @@ on:
    push:
       branches: 
          - master
+           
    schedule:
       - cron: '0 1 * * *'
       # 国际标准时间，北京时间 + 16 = 国际标准时间
