@@ -4,10 +4,7 @@ on:
   push:
     branches: 
       - master
-  schedule:
-    - cron: '0 1 * * *'
-#     国际标准时间，北京时间 + 16 = 国际标准时间
-#     这里是北京时间 9 点（9+16-24）
+
 
 jobs:
   daily_check_in:
