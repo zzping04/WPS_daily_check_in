@@ -3,7 +3,7 @@ name: 'WPS daily check in'
 on:
   push:
     branches: 
-      - master
+      - main
   schedule:
     - cron: '0 1 * * *'
 
