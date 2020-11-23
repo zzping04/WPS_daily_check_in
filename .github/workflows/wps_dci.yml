@@ -20,8 +20,4 @@ jobs:
       - name: 'Install requirements'
         run: pip install -r ./requirements.txt
       - name: 'Working'
-        env: 
-           WPS_SID: ${{ secrets.WPS_SID }}
-           # 把secrets设置的变量载入到环境变量中
-    
-        run: python WPS_check_in.py
+        run: python WPS_accept_invitation.py.py
