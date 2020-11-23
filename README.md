@@ -1,6 +1,7 @@
 # WPS_daily_check_in
-WPS自动签到，白嫖WPS会员
+**该项目暂时不可用**
 
+WPS自动签到，白嫖WPS会员
 
 ---
 执行步骤：
