@@ -1,4 +1,8 @@
-default_sid = [
+invite_userid = 244668941
+
+import requests
+
+sids = [
     "V02StVuaNcoKrZ3BuvJQ1FcFS_xnG2k00af250d4002664c02f",
     "V02SWIvKWYijG6Rggo4m0xvDKj1m7ew00a8e26d3002508b828",
     "V02Sr3nJ9IicoHWfeyQLiXgvrRpje6E00a240b890023270f97",
@@ -13,3 +17,8 @@ default_sid = [
     "V02SwV15KQ_8n6brU98_2kLnnFUDUOw00adf3fda0026934a7f",
     "V02SC1mOHS0RiUBxeoA8NTliH2h2NGc00a803c35002693584d"
 ]
+
+invite_url = 'http://zt.wps.cn/2018/clock_in/api/invite'
+for i in sids:
+    requests.post(invite_url, headers={'sid': i}, data={'invite_userid': invite_userid})
+    
