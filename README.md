@@ -35,6 +35,29 @@ WPS 有一个免费领会员的活动，关注微信小程序“我的WPS会员�
 - 该项目基于 GitHub Action 功能实现
 
 - 该项目每天早上 9 点自动运行，可能会晚个十几分钟；每次修改该项目中的任何文件也会自动执行一次
+- 接受邀请有时会不成功，可能同一时间有很多人使用备用账号，可以在 .github/workflows/wps_dci.yml 修改每天自动运行的时间，避免拥挤，
+```
+# 第 8 行代码
+- cron: '0 1 * * *'
+# 第一个数表示分钟（范围 0 - 59）
+# 第二个数表示国际标准时间 1 点（北京时间上午 9 点）（范围 0 - 23）
+# 改动前两个二个数即可，不要动后面的三个 *
+```
+- 如果邀请数不够 10，可以尝试在 WPS_accept_invitation.py 中增加重复请求次数和等待时间
+```python
+# 第 23 行代码
+def request_re(sid, invite_userid, rep = 30):
+# rep 值代表重复次数，可以增加次数
+    invite_url = 'http://zt.wps.cn/2018/clock_in/api/invite'
+    r = requests.post(invite_url, headers={'sid': sid}, data={'invite_userid': invite_userid})
+    js = json.loads(r.content)
+    if js['msg'] == 'tryLater' and rep > 0:
+        rep -= 1
+        time.sleep(2)
+        # 这里表示每次重复等候 2 s，可以适当加大
+        r = request_re(sid, invite_userid, rep)
+    return r
+```
 - 可在微信小程序“我的WPS会员”，‘任务’菜单->‘邀请好友’栏查看是否邀请成功（9 点以后）
 
 ---
