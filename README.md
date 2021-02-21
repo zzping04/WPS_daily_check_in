@@ -20,6 +20,16 @@ WPS 有一个免费领会员的活动，关注微信小程序“我的WPS会员�
 3. 在 Fork 完的该项目页面中，点击上方 Actions，开启workflow
 4. 点击文件 WPS_accept_invitation.py。将第一行 'invite_userid =' 后面的数字改成自己的会员 ID，保存修改即可
 
+# 微信推送邀请结果：
+1. 如果想接收邀请任务的结果，可以微信关注“server 酱”，访问 http://sc.ftqq.com/?c=code ，微信登录后，在“发送消息”页面获取 SCKEY 的值。
+2. 在本页面上方 Settings → Secrets 中点击 New repository secret ，Name 填写 “**SERVER_KEY**”（不带引号），Value 中填写上一步获取的 SCKEY 值。
+
+# 每 60 天需要重新激活一下
+![](https://user-images.githubusercontent.com/30107520/108630795-9f885200-74a1-11eb-85b3-7e9386f7fa05.jpg)  
+
+60 天不改动这个项目的文件，就会停掉 Action 的 workflow。
+
+需要每 60 天随便改动一下 README.md 里的内容，随便改几个字然后保存。
 
 # 其它
 - 该项目基于 GitHub Action 功能实现
