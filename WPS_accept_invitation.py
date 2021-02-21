@@ -32,7 +32,7 @@ def request_re(sid, invite_userid, rep = 10):
 for i in invite_userids:
     for j in sids:
         r = request_re(j, i)
-        print(js)
+        js = json.loads(r.content)
         if js['result'] == 'ok':
             mk += 1
             
