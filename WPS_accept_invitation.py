@@ -34,4 +34,4 @@ if SERVER_KEY:
         'text':'WPS邀请好友任务',
         'desp':'成功邀请%d位好友'%(mk)
     }
-    requests.post('https://sc.ftqq.com/%s.send'%(SERVER_KEY.strip(), data = data)
+    requests.post('https://sc.ftqq.com/%s.send'%(SERVER_KEY.strip()), data = data)
