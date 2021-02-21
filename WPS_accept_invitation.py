@@ -26,11 +26,12 @@ for i in invite_userids:
         js = json.loads(r.content)
         if js['result'] == 'ok':
             mk += 1
-print('成功邀请%d位好友'%(mk))        
-SERVER_KEY = os.getenv('SERVER_KEY').strip()
+print('成功邀请%d位好友'%(mk))   
+
+SERVER_KEY = os.getenv('SERVER_KEY')
 if SERVER_KEY:
     data = {
         'text':'WPS邀请好友任务',
         'desp':'成功邀请%d位好友'%(mk)
     }
-    requests.post('https://sc.ftqq.com/%s.send'%(SERVER_KEY), data = data)
+    requests.post('https://sc.ftqq.com/%s.send'%(SERVER_KEY.strip(), data = data)
