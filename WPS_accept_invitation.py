@@ -21,7 +21,7 @@ mk = 0
 for i in invite_userids:
     for j in sids:
         invite_url = 'http://zt.wps.cn/2018/clock_in/api/invite'
-        r = requests.post(invite_url, headers={'sid': i}, data={'invite_userid': invite_userid})
+        r = requests.post(invite_url, headers={'sid': j}, data={'invite_userid': i})
         js = json.loads(r.content)
         if js['result'] == 'ok':
             mk += 1
